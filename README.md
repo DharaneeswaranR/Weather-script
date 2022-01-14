@@ -2,7 +2,7 @@
 
 Simple Weather script written in Python to retrive weather information of the given location.
 
-![Screenshot](images/Sreenshot.png)
+![Screenshot](images/Screenshot.png)
 
 ### Steps to run the script
 

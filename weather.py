@@ -1,7 +1,7 @@
 import requests, socket
 from colorama import Fore
 
-WEATHER_API = "98eaf8d3fb414253a82134104221301" # Add your API key here
+WEATHER_API = "" # Add your API key here
 
 def check_connection():
     '''
