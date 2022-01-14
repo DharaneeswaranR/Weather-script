@@ -10,7 +10,7 @@ Simple Weather script written in Python to retrive weather information of the gi
 ```
 pip install -r requirements.txt
 ```
-2. Get your own API key from [weatherapi.com](https://www.weatherapi.com/) and add it to the `WEATHER_APR` in `weather.py`.
+2. Get your own API key from [weatherapi.com](https://www.weatherapi.com/) and add it to the `WEATHER_API` in `weather.py`.
 ```python
 WEATHER_API = "Your API key goes here"
 ```
