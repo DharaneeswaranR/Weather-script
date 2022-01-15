@@ -22,7 +22,7 @@ def process_response(response):
     '''
     Processes the json into python dictionary
     '''
-    return eval(eval(str(response.content)))
+    return eval(response.text)
 
 def get_location():
     '''
@@ -53,7 +53,7 @@ if __name__ == '__main__':
         print(f"{Fore.RED}Error: Internet Unavailable{Fore.RESET}")
         exit()
 
-    weather_request = requests.get(f"http://api.weatherapi.com/v1/current.json?key={WEATHER_API}&q={get_location()}&aqi=no")
+    weather_request = requests.get(f"http://api.weatherapi.com/v1/current.json?key={WEATHER_API}&q={'Chennai'}&aqi=no")
     weather_info = process_response(weather_request)
 
     if not api_valid(weather_info):
@@ -74,13 +74,16 @@ if __name__ == '__main__':
     feelslike_c = weather_info['current']['feelslike_c']
     feelslike_f = weather_info['current']['feelslike_f']
     uv = weather_info['current']['uv']
+    last_updated = weather_info['current']['last_updated']
 
     weather = f'''
 {Fore.CYAN}Weather at {location}, {region}, {country}{Fore.RESET}
 
 It is {Fore.YELLOW}{condition}{Fore.RESET} with a temp of {Fore.GREEN}{temp_c}°C ({temp_f}°F){Fore.RESET} which feels like {Fore.GREEN}{feelslike_c}°C ({feelslike_f}°F){Fore.RESET}
-Wind speed is {Fore.MAGENTA}{wind_kph}kph ({wind_mph}mph){Fore.RESET} in {Fore.LIGHTYELLOW_EX}{wind_dir}{Fore.RESET}
+Wind speed is {Fore.MAGENTA}{wind_kph}kph ({wind_mph}mph){Fore.RESET} in {Fore.LIGHTYELLOW_EX}{wind_dir}{Fore.RESET} direction
 Humidity is at {Fore.LIGHTBLUE_EX}{humidity}{Fore.RESET} and UV index is at {Fore.LIGHTBLUE_EX}{uv}{Fore.RESET}
+
+Last updated: {Fore.LIGHTCYAN_EX}{last_updated}{Fore.RESET}
 '''
 
     print(weather)
