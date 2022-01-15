@@ -53,7 +53,7 @@ if __name__ == '__main__':
         print(f"{Fore.RED}Error: Internet Unavailable{Fore.RESET}")
         exit()
 
-    weather_request = requests.get(f"http://api.weatherapi.com/v1/current.json?key={WEATHER_API}&q={'Chennai'}&aqi=no")
+    weather_request = requests.get(f"http://api.weatherapi.com/v1/current.json?key={WEATHER_API}&q={get_location()}&aqi=no")
     weather_info = process_response(weather_request)
 
     if not api_valid(weather_info):
