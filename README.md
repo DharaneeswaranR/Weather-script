@@ -18,3 +18,7 @@ WEATHER_API = "Your API key goes here"
 ```
 python weather.py
 ```
+#
+
+### Code References
+- [nanna7077](https://github.com/nanna7077/LHDBuild22/tree/main/WeatherNow)
